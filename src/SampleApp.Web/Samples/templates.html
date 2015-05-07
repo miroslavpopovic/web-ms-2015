@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Mustache, Handlebars</title>
+</head>
+<body>
+
+    <!-- MUSTACHE -->
+    <script type="x-tmpl-mustache">
+        {{ #users }}
+        <h2>Hello {{ name }}</h2>
+        <p>
+            Today is {{ datum }}.
+        </p>
+        {{ /users }}
+    </script>
+
+    <!-- HANDLEBARS -->
+    <script type="text/x-handlebars-template">
+        {{ #each users }}
+        <h2>Hello {{ name }}</h2>
+        <p>
+            Today is {{ datum }}.
+        </p>
+        {{ /each }}
+    </script>
+
+</body>
+</html>

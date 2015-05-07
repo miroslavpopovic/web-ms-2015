@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Knockout primjer</title>
+</head>
+<body>
+
+    <section>
+        First Name: <br />
+        <input type="text" data-bind="value: firstName, valueUpdate: 'afterkeydown'" /><br />
+
+        Last Name: <br />
+        <input type="text" data-bind="value: lastName, valueUpdate: 'afterkeydown'" /><br />
+
+        Full Name: <strong data-bind="text: fullName"></strong><br />
+
+        Skills: <br />
+        <select data-bind="options: skills"></select>
+    </section>
+
+    <script src="../Scripts/knockout-3.2.0.debug.js"></script>
+
+    <script>
+
+        (function () {
+
+            var ViewModel = function () {
+                this.firstName = ko.observable();
+                this.lastName = ko.observable();
+
+                this.skills = ko.observableArray([
+                    'C#',
+                    'JavaScript',
+                    'HTML5'
+                ]);
+
+                this.fullName = ko.computed(function () {
+                    return this.firstName() + ' ' + this.lastName();
+                }, this);
+            };
+
+            ko.applyBindings(new ViewModel());
+
+        }());
+    </script>
+</body>
+</html>
